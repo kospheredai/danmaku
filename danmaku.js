@@ -52,25 +52,3 @@ $('.bilibili-player-video-danmaku')[0].style.cssText="-webkit-mask-repeat: no-re
     });
 }
 setInterval("aaa();",30);
-
-
-myArray= new Array(ww*hh*3);
-for(let i = 0;i<hh;i++){
-for(let j = 0;j<ww;j++){
-tp=es.data[i*ww+j];
-myArray[i*ww+j*3]=tp;
-myArray[i*ww+j*3+1]=tp;
-myArray[i*ww+j*3+2]=tp;
-}
-}
-function arrayBufferToBase64( buffer ) {
-        var binary = '';
-        var bytes = new Uint8Array( buffer );
-        var len = bytes.byteLength;
-        for (var i = 0; i < len; i++) {
-            binary += String.fromCharCode( bytes[ i ] );
-        }
-        return window.btoa( binary );
-    }
-var str12 = arrayBufferToBase64(myArray);
-
