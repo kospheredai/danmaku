@@ -22,9 +22,11 @@ let str='';
 let myArray;
 let tp;
 
-let net = await bodyPix.load(0.75);
+let net = bodyPix.load(0.75);
 
 async function aaa(){
+	if(net==null)
+		return;
 	context.drawImage(vid,0, 0, canvas.width, canvas.height);
 await net.estimatePersonSegmentation(canvas,8,0.5)
     .then(function(segmentation){
