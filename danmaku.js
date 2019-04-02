@@ -23,7 +23,7 @@ let myArray;
 let tp;
 
 let net1;
-bodyPix.load(0.75).then(function(net){net1=net;});
+bodyPix.load(0.75).then(function(net){net1=net;alert("装填完毕！")});
 
 async function aaa(){
 	if(net1==null)
