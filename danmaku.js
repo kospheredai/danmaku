@@ -22,12 +22,14 @@ let str='';
 let myArray;
 let tp;
 
-let net =  await bodyPix.load(0.75);
+let net1;
+bodyPix.load(0.75).then(function(net){net1=net;});
 
 async function aaa(){
-
+	if(net1==null)
+		return ;
 	context.drawImage(vid,0, 0, canvas.width, canvas.height);
-await net.estimatePersonSegmentation(canvas,8,0.5)
+await net1.estimatePersonSegmentation(canvas,8,0.5)
     .then(function(segmentation){
 		
      	var es=segmentation;
