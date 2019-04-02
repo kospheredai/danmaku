@@ -9,7 +9,7 @@
 let hh= parseInt($(".bilibili-player-video").height()/5);
 let ww = parseInt($(".bilibili-player-video").width()/5);
 
-$("body").append(' <canvas id="myCanvas"></canvas>');
+$("body").append(' <canvas id="myCanvas" style="display:none;"></canvas>');
 let vid =document.getElementsByClassName("bilibili-player-video")[0].children[0];
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
@@ -22,11 +22,10 @@ let str='';
 let myArray;
 let tp;
 
-let net = bodyPix.load(0.75);
+let net =  await bodyPix.load(0.75);
 
 async function aaa(){
-	if(net==null)
-		return;
+
 	context.drawImage(vid,0, 0, canvas.width, canvas.height);
 await net.estimatePersonSegmentation(canvas,8,0.5)
     .then(function(segmentation){
@@ -52,3 +51,4 @@ $('.bilibili-player-video-danmaku')[0].style.cssText="-webkit-mask-repeat: no-re
     });
 }
 setInterval("aaa();",30);
+
